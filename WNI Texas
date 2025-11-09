@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WNI Texas - Real News & Stories</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f9f9f9;
+  color: #222;
+  scroll-behavior: smooth;
+}
+
+/* HEADER */
+header {
+  position: sticky;
+  top: 0;
+  background: #b30000;
+  color: white;
+  z-index: 1000;
+}
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px;
+}
+header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+header .update-time {
+  font-size: 14px;
+  color: #fff8;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: #800000;
+}
+nav button {
+  background: none;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+nav button:hover, nav button.active {
+  background: #a00000;
+  border-radius: 5px;
+}
+
+/* SECTIONS */
+section {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+section h2 {
+  border-bottom: 3px solid #b30000;
+  padding-bottom: 8px;
+}
+.news-card {
+  background: white;
+  margin: 15px 0;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.news-card:hover {
+  transform: scale(1.02);
+}
+.news-card img {
+  width: 100%;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+.news-source {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+}
+
+/* ARTICLE VIEW */
+#article-view {
+  display: none;
+  background: #fff;
+  min-height: 100vh;
+  padding: 40px 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+#article-view img {
+  width: 100%;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+#article-view h1 {
+  color: #b30000;
+  font-size: 30px;
+}
+#article-view p {
+  line-height: 1.7;
+  font-size: 18px;
+}
+#back-btn {
+  background: #b30000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#back-btn:hover {
+  background: #a00000;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #222;
+  color: #ccc;
+  margin-top: 50px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <h1>WNI Texas</h1>
+    <div class="update-time" id="update-time">Updated: </div>
+  </div>
+  <nav>
+    <button data-target="top-stories" class="active">Top Stories</button>
+    <button data-target="national">National</button>
+    <button data-target="local">Local</button>
+    <button data-target="international">International</button>
+    <button data-target="science-tech">Science & Tech</button>
+    <button data-target="story-week">Stories</button>
+    <button data-target="book-month">Books</button>
+  </nav>
+</header>
+
+<main id="main-content">
+  <section id="top-stories">
+    <h2>📰 Top Stories</h2>
+    <div class="news-card" data-article="story-1">
+      <h3>U.S. adds “poison-pill” clauses to Asia trade</h3>
+      <p>U.S. puts in some unusual termination or “poison pill” clauses into its new trade agreements with Malaysia and Cambodia.</p>
+      <img src="https://mars.nasa.gov/system/news_items/main_images/9422_PIA25533-FigureA-web.jpg" alt="">
+      <div class="news-source">Source: Financial Times</div><br>
+      <a src="https://mars.nasa.gov/system/news_items/main_images/9422_PIA25533-FigureA-web.jpg">Link</a>
+      <br>
+    </div>
+    <div class="news-card" data-article="story-2">
+      <h3>World Health Organization: More than 1 billion people globally are living with mental health conditions — urgent scale-up required</h3>
+      <p>Medical experts say that more than 1 billion people globally are living with mental health conditions, and urgent scale-up is required.</p>
+      <img src="https://images.unsplash.com/photo-1555617117-08c5f29bd6a3?auto=format&fit=crop&w=900&q=80" alt="">
+      <div class="news-source">Source: </div>
+    </div>
+  </section>
+
+  <section id="national">
+    <h2>🏛 National</h2>
+    <div class="news-card" data-article="education-reform">
+      <h3>Education Reform Bill Sparks Nationwide Debate</h3>
+      <p>New legislation proposes sweeping changes to public education funding and testing.</p>
+      <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80" alt="">
+      <div class="news-source">Source: </div>
+    </div>
+  </section>
+
+  <section id="local">
+    <h2>🏙 Local</h2>
+    <div class="news-card" data-article="local-park">
+      <h3>Community Park Renovation Completed in Austin</h3>
+      <p>After months of development, the city opens a new eco-friendly park for residents.</p>
+      <img src="https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?auto=format&fit=crop&w=900&q=80" alt="">
+      <div class="news-source">Source: </div>
+    </div>
+  </section>
+
+  <section id="international">
+    <h2>🌍 International</h2>
+    <div class="news-card" data-article="nepal-ban">
+      <h3>Nepal’s Ban Causes Revolution</h3>
+      <p>Government bans spark outrage across the country, triggering mass protests.</p>
+      <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=900&q=80" alt="">
+      <div class="news-source">Source: </div>
+    </div>
+  </section>
+
+  <section id="science-tech">
+    <h2>🔬 Science & Tech</h2>
+    <div class="news-card" data-article="fusion-energy">
+      <h3>Fusion Energy Breakthrough Achieved</h3>
+      <p>Scientists finally achieve net-positive energy — the dawn of a new power era.</p>
+      <img src="https://images.unsplash.com/photo-1532974297617-c0f05fe48bff?auto=format&fit=crop&w=900&q=80" alt="">
+      <div class="news-source">Source: </div>
+    </div>
+  </section>
+
+  <section id="story-week">
+    <h2>💫 Story of the Week</h2>
+    <div class="news-card" data-article="story-lantern">
+      <h3>The Lantern in the Storm</h3>
+      <p>A heartwarming story about courage and hope in dark times.</p>
+      <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80" alt="">
+      <div class="news-source">Source: </div>
+    </div>
+  </section>
+
+  <section id="book-month">
+    <h2>📚 Book of the Month</h2>
+    <div class="news-card" data-article="wild-things">
+      <h3>Kid’s Book: <em>Where the Wild Things Are</em></h3>
+      <p>Feeling misunderstood, Max escapes to the land of the Wild Things, where he becomes their king and learns the meaning of home.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/en/7/7b/Wherethewildthingsare.jpg" alt="Where the Wild Things Are">
+      <p><a href="https://online.flipbuilder.com/rslc/tggh/" target="_blank">📖 Read the Book Online</a></p>
+      <div class="news-source">Source: </div>
+    </div>
+  </section>
+</main>
+
+<!-- FULL ARTICLE VIEW -->
+<section id="article-view">
+  <button id="back-btn">← Back</button>
+  <h1 id="article-title"></h1>
+  <img id="article-img" src="">
+  <p id="article-body"></p>
+</section>
+
+<footer>
+  <p>© 2025 WNI Texas — All rights reserved.</p>
+</footer>
+
+<script>
+const articles = {
+  "story-1": {
+    title: "U.S. adds “poison-pill” clauses to Asia trade",
+    img: "https://pbs.twimg.com/media/G5DNvNQWEAAbcKp.jpg",
+    body: `The United States has embedded unusual termination or “poison pill” clauses into its new trade agreements with Malaysia and Cambodia. These clauses allow the U.S. to unilaterally terminate the deal if the partner country signs other agreements or undertakes actions that threaten “essential U.S. interests” or are deemed a “material threat” to U.S. security. 
+Financial Times
+
+This move is widely interpreted as part of Washington’s evolving strategy in Asia — not purely trade-focused, but heavily geopolitical — aimed at limiting the influence of China in regional supply-chains and trade architecture. 
+Global Trade Alert
++1
+ For the smaller southeast-Asian nations involved, these provisions represent a clear choice between aligning with the U.S. (and its trade bloc) or staying open to Chinese-led trade and supply-chain partnerships.
+
+Background and Context
+
+Over the past decade, Southeast Asia has increasingly become a critical battleground for trade, supply-chains and strategic influence between the U.S. and China. The region — including Malaysia, Cambodia, Vietnam, Thailand and others — acts as both manufacturing hub and trade routing point for global commerce.
+
+In this context, the U.S. has grown concerned about China’s “factory Asia” dominance, the rerouting of Chinese goods through neighbouring countries, and the risk that U.S. allies could drift into Chinese-led economic frameworks. As one Swiss strategist puts it: “This is the U.S. protecting its market-access strength … to try and reshape the ‘factory Asia’ that has developed over recent decades.” 
+Financial Times
++1
+
+The so-called “poison pill” clauses are reminiscent of earlier trade-deal mechanisms (for example in the United States–Mexico–Canada Agreement (USMCA)) where the U.S. insisted on strong oversight and conditions in partner trade pacts. 
+Global Trade Alert
++1
+ But embedding broad termination rights tied to a country’s other trade or security deals is a sharper step.
+
+What the Clauses Look Like
+
+While the full texts of the deals are not fully public, key features of the termination clauses include:
+
+The U.S. may end the agreement if the partner country enters a trading or security arrangement that the U.S. deems to threaten its “essential interests.” 
+Financial Times
++1
+
+Additional mechanisms to impose “transshipment” tariffs on goods routed through southeast-Asia from China, potentially as high as 40 % for Chinese goods re-exported through Cambodia or Malaysia. 
+Financial Times
++1
+
+Language that imposes a kind of “loyalty test” on the partner countries: effectively forcing them to pick between deeper alignment with the U.S. or preserving flexibility to cooperate with China. 
+Financial Times
++1
+
+Regional Responses and Implications
+
+For Malaysia and Cambodia — Both countries accepted U.S. trade deals that include the new clauses. But reactions are mixed:
+
+Domestically in Malaysia, there is some backlash: critics say the clause undermines sovereignty and limits the country’s ability to negotiate independently with China or other partners. 
+Financial Times
++1
+
+In Cambodia, the reliance on Chinese infrastructure investment (e.g., via the Belt and Road Initiative) makes the decision even more sensitive.
+
+For other Southeast Asian nations — These developments send a strong signal. For example:
+
+Vietnam is reportedly resisting similar clauses in its own U.S. trade discussions. 
+Financial Times
++1
+
+Thailand may be under pressure to accept analogous terms if it wants deeper trade access to the U.S.
+
+For China — Beijing has pushed back diplomatically, warning against exclusionary trade blocs and underscoring its own trade engagement model with ASEAN. The Chinese argument: such U.S. mechanisms push countries to choose sides, rather than allowing multi-vector trade strategies. 
+Financial Times
+
+For multilateral trade architecture — Analysts warn that this strategy could undermine multilateralism: trade agreements are increasingly being used not only for economic liberalisation, but as geopolitical leverage. “Another nail in the coffin of multilateralism,” one Brussels think-tank argues. 
+Financial Times
++1
+
+Strategic and Economic Implications
+
+Supply chain rerouting: The U.S. is signalling that supply chains routed through Southeast Asia may face new scrutiny. If goods from China are rerouted through countries like Cambodia/Malaysia to escape tariffs or restrictions, the U.S. may respond with high tariffs or termination of trade privileges. 
+Financial Times
++1
+
+Manufacturing investment decisions: Countries in the region may face a tougher calculus – whether to accept U.S. alignment or maintain diversified links including China, especially in manufacturing and export-oriented sectors.
+
+Geopolitical alignment: These trade deals are becoming instruments of security policy. For smaller nations, accepting such terms may constrain their strategic latitude in dealing with China or other regional actors.
+
+Trade negotiation precedent: Future U.S. trade deals (or renegotiations) may increasingly include such conditional clauses, raising the bar for other countries wishing to participate in U.S.-dominated trade frameworks.
+
+Challenges & Criticisms
+
+Effectiveness: Some analysts argue that while the provisions are dramatic in language, their real practical bite may be limited — enforcement will depend on political will, domestic backlash, and actual trade flows. 
+Global Trade Alert
++1
+
+Backlash risk: Countries may resist or backlash against what they perceive as U.S. coercion, potentially driving them toward China or other alternative trade blocs (for example, the Regional Comprehensive Economic Partnership (RCEP)).
+
+Sovereignty concerns: Smaller countries may view these clauses as compromising national sovereignty by constraining independent trade or security decisions.
+
+Multilateral norms: By transforming trade agreements into tools of strategic containment, the U.S. may accelerate fragmentation of global trade, moving away from open multilateral rules-based systems toward blocs and conditional alignments.
+
+What to Watch
+
+Whether upcoming U.S. negotiations with Vietnam, Thailand or other ASEAN nations will include identical or similar “poison-pill” clauses.
+
+How ASEAN responds as a bloc — will unified or coordinated pushback emerge?
+
+Whether China offers counter-incentives to the affected countries (e.g., trade, investment, infrastructure) to resist U.S. pressure.
+
+Impact on specific supply-chain flows: Will U.S. tariffs or pre-emptive actions disrupt goods routed through Malaysia or Cambodia?
+
+Domestic political dynamics in Malaysia and Cambodia: Are there effective debates, backlash or renegotiation attempts?
+
+How multilateral trade frameworks evolve: Will countries view this move as a signal to diversify away from U.S.-dominated agreements?
+
+Significance for Your Channel
+
+For a news-channel website, this story offers strong angles:
+
+Geopolitics & security: Positioning trade as a tool of strategic competition between the U.S. and China.
+
+Economics & business: How manufacturing hubs in Asia are being pressured, and implications for global supply chains.
+
+Country-focus: Choose a lens (e.g., Malaysia, Cambodia) to highlight how smaller nations respond—local voices, civil-society reactions, sovereignty concerns.
+
+Future outlook: What this means for trade deals globally, for nations’ strategic autonomy, and for regional alliances.`
+  },
+  "story-2": {
+    title: "World Health Organization: More than 1 billion people globally are living with mental health conditions — urgent scale-up required",
+    img: "https://healthpolicy-watch.news/wp-content/uploads/2025/09/Screenshot-2025-09-02-at-11.13.14-AM-1024x618.png",
+    body: `New data released by the World Health Organization shows that more than one billion people worldwide are living with mental health conditions such as anxiety and depression, cutting across age, income level, and geography. 
+World Health Organization
++1
+ Despite some progress at national levels, investment in mental health remains stagnating and treatment gaps are profound — particularly in low- and middle-income countries. 
+Health Policy Watch
++1
+
+Background & Scope of the Crisis
+
+According to WHO’s “World Mental Health Today” and “Mental Health Atlas 2024” reports:
+
+The figure of “over one billion people” includes those with diagnosed mental disorders and also broader “mental health conditions” — including distress, impairment in functioning, or risk of self-harm. 
+PMC
++1
+
+Anxiety and depressive disorders remain the most common, accounting for more than two-thirds of all cases. 
+www.ndtv.com
++1
+
+The economic toll is vast: depression and anxiety alone cost the global economy an estimated US $1 trillion each year in lost productivity and related costs. 
+Health Policy Watch
++1
+
+Treatment and care vary vastly by country income level — in low-income countries fewer than 10% of people with psychosis receive care, compared to more than 50% in high-income nations. 
+eMHIC
+
+Government spending on mental health remains low — globally the median spend is about 2% of health budgets, with minimal change since 2017. 
+Business Standard
+
+Workforce shortages: globally, the median number of mental health workers is only about 13 per 100,000 population, and far lower in poorer countries. 
+Tricontinental Institute
+
+The situation is particularly acute among women, youth, and marginalized populations. 
+The New Indian Express
++1
+
+Why It Matters
+
+Human impact – Mental health conditions are now one of the leading causes of disability worldwide. People with severe mental disorders also face higher risk of early death (10–20 years earlier) often due to untreated physical diseases. 
+World Health Organization
++1
+
+Economic impact – Poor mental health reduces workforce participation, increases absenteeism, and drives hidden social costs. The US $1 trillion estimate underlines that investment in mental health is not only a humanitarian imperative but also an economic one. 
+Health Policy Watch
++1
+
+Equity & global health goals – The disparity between country income levels shows global inequities. The UN’s Sustainable Development Goals (SDGs) include mental health, but current progress is off-track (e.g., target to reduce suicide by ⅓ by 2030 may only achieve ~12% reduction at current pace). 
+www.ndtv.com
++1
+
+<h1>Key Challenges & Underlying Drivers</h1>
+
+Diagnosis and broad definitions
+The WHO has adopted a broad definition of “mental health conditions” that includes not only strict diagnoses but also psychosocial disabilities and other states of distress. Some critics argue this broadening may dilute focus on severe illnesses. 
+PMC
+
+Treatment gap and system weakness
+Many countries lack community-based mental health services. Psychiatric hospitals dominate in some places, but WHO recommends shifting toward community models and integrating mental health into primary care. 
+World Health Organization
+
+Stigma, discrimination and rights
+People with mental health conditions still face stigma, exclusion, and violations of rights. Many countries’ mental-health laws are not fully aligned with international human-rights standards. 
+Business Standard
+
+Workforce and funding shortfalls
+A workforce of 13 mental-health workers per 100,000 people may still be sufficient in high-income countries, but in low-income countries the ratio is dramatically lower (sometimes only one psychiatrist per 200,000 people). 
+Tricontinental Institute
+
+Changing social and economic pressures
+Globalisation, urbanisation, climate change, pandemics, and digital stressors are all creating new risk environments for mental-health problems. While not all captured in the latest data, the burden is rising. 
+PMC
+
+Regional and Country-Level Notes
+
+In low / middle-income countries (LMICs), the gap between need and access is especially wide. Less than 10 % of people with psychosis receive care in the poorest countries. 
+eMHIC
+
+Women are disproportionately impacted by anxiety, depression and eating disorders, while men more often suffer from substance-use disorders and ADHD. 
+Health Policy Watch
+
+Suicide remains a major concern: an estimated 727,000 lives lost in 2021 worldwide. Suicide is the third leading cause of death among 15–29-year-olds. 
+The New Indian Express
++1
+
+For countries like India, the challenges are especially acute: lifetime prevalence estimates around 13.7 %, with 70–92 % of people with mental health disorders not receiving treatment. 
+Business Standard
+
+What Needs to Happen: Recommendations & Actions
+
+Increase funding: Countries must elevate mental health on the health-budget agenda — spending must rise above 2 % and reach levels that allow meaningful service coverage.
+
+Integrate mental health into primary care: Services must be brought closer to people, not siloed in specialist or institutional settings. The WHO action plan emphasises community-based care. 
+World Health Organization
+
+Develop the workforce: Train more mental-health professionals, expand non-specialist providers (peer workers, community health workers) especially in resource-poor settings.
+
+Legislative reform & rights-based care: Mental-health laws and policies must align with human-rights standards, protect people from institutionalisation or harmful practices, and promote independence. 
+Business Standard
+
+Collection of data and research: More robust data systems are needed to map who is receiving care, how effective it is, and where gaps exist.
+
+Address social determinants: Interventions beyond health care — poverty, education, employment, stigma — must be addressed as part of broader prevention.
+
+Special focus on youth & vulnerable groups: Early-intervention programs focusing on adolescents and young adults can prevent long-term disability.
+
+Global collaboration: Mental health is a global issue requiring shared learning, investment, and support — especially for countries with fewer resources.`
+  },
+  "nepal-ban": {
+    title: "Nepal’s Ban Causes Revolution",
+    img: "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=900&q=80",
+    body: `New government restrictions in Nepal have led to nationwide protests demanding reform.`
+  },
+  "fusion-energy": {
+    title: "Fusion Energy Breakthrough Achieved",
+    img: "https://images.unsplash.com/photo-1532974297617-c0f05fe48bff?auto=format&fit=crop&w=900&q=80",
+    body: `Scientists at NIF achieved net-positive fusion — a step toward clean, limitless energy.`
+  },
+  "story-lantern": {
+    title: "The Lantern in the Storm",
+    img: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80",
+    body: `"The Lantern in the Storm" is an uplifting tale about keeping hope alive even in the darkest moments.`
+  },
+  "wild-things": {
+    title: "Where the Wild Things Are",
+    img: "https://upload.wikimedia.org/wikipedia/en/7/7b/Wherethewildthingsare.jpg",
+    body: `This classic by Maurice Sendak follows Max to the land of the Wild Things, where imagination meets emotion.`
+  },
+  "education-reform": {
+    title: "Education Reform Bill Sparks Nationwide Debate",
+    img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80",
+    body: `A new bill aims to overhaul the U.S. education system, changing how schools are funded and students are tested.`
+  },
+  "local-park": {
+    title: "Community Park Renovation Completed in Austin",
+    img: "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?auto=format&fit=crop&w=900&q=80",
+    body: `Austin officials unveiled a redesigned park with green features, community gardens, and walking trails.`
+  }
+};
+
+// Article handling
+const cards = document.querySelectorAll(".news-card");
+const mainContent = document.getElementById("main-content");
+const articleView = document.getElementById("article-view");
+
+cards.forEach(card => {
+  card.addEventListener("click", () => {
+    const id = card.dataset.article;
+    const a = articles[id];
+    if (!a) return;
+
+    document.getElementById("article-title").textContent = a.title;
+    document.getElementById("article-img").src = a.img;
+    document.getElementById("article-body").textContent = a.body;
+
+    mainContent.style.display = "none";
+    articleView.style.display = "block";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
+
+document.getElementById("back-btn").addEventListener("click", () => {
+  articleView.style.display = "none";
+  mainContent.style.display = "block";
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// Navigation scroll
+document.querySelectorAll("nav button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById(btn.dataset.target).scrollIntoView({ behavior: "smooth" });
+  });
+});
+
+// Auto update date/time
+function updateDateTime() {
+  const now = new Date();
+  document.getElementById("update-time").textContent = 
+    "Updated: " + now.toLocaleString();
+}
+updateDateTime();
+setInterval(updateDateTime, 60000);
+</script>
+
+</body>
+</html>
